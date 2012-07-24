@@ -1,0 +1,3 @@
+useDynLib(genSurv)
+export(genCMM, genCPHM, genTDCM, genTHMM)
+export(convert)
