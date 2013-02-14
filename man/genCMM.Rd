@@ -2,7 +2,7 @@
 \name{genCMM}
 \alias{genCMM}
 \title{Generation of Cox Markov data from an illness-death model}
-\description{Generation of Cox Markov data from an illness-death model}
+\description{Generation of Cox Markov data from an illness-death model.}
 \usage{genCMM(n, model.cens, cens.par, beta, covar, rate)}
 
 \arguments{
@@ -47,7 +47,6 @@
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{convert}},
 \code{\link{genCPHM}},
 \code{\link{genTDCM}},
 \code{\link{genTHMM}}.

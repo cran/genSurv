@@ -47,6 +47,7 @@ genCMM <- function(n, model.cens, cens.par, beta, covar, rate) {
 	data <- data.frame(mat, row.names=NULL)
 	data <- data[-1,]
 	names(data) <- c("id", "start", "stop", "event", "covariate", "trans")
+	row.names(data) <- as.integer( 1:nrow(data) )
 	class(data) <- c(class(data), "CMM")
 	return(data)
 }

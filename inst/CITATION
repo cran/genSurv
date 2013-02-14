@@ -1,0 +1,16 @@
+PKG <- "genSurv"
+citHeader( paste("To cite the R package ", PKG, " in publications use:") )
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
+url <- paste("http://CRAN.R-project.org/package=", PKG, sep="")
+
+citEntry(
+	entry = "Manual",
+	title = "genSurv: Generating multi-state survival data",
+	author = personList( as.person("Artur Agostinho Araújo"), as.person("Luís Meira-Machado"), as.person("Susana Faria") ),
+	year = year,
+	note = vers,
+	url = url,
+	textVersion = paste("Artur Agostinho Araújo, Luís Meira-Machado and Susana Faria (", year, "). genSurv: Generating multi-state survival data. ", vers, " URL ", url, ".", sep="")
+)

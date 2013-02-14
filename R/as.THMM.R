@@ -1,17 +1,25 @@
-toTHMM <- function(coxdata) {
-	UseMethod("toTHMM")
+is.THMM <- function(x) {
+	return( is.data.frame(x) & inherits(x, "THMM") )
 }
 
-toTHMM.default <- function(coxdata) {
-	stop("The requested conversion isn't implemented!", call.=FALSE)
+as.THMM <- function(x) {
+	UseMethod("as.THMM")
 }
 
-toTHMM.CMM <- function(coxdata) {
-	if ( !inherits(coxdata, "CMM") ) stop("'coxdata' must be of class 'CMM'", call.=FALSE)
-	dados <- cbind(coxdata$id, coxdata$start, coxdata$stop, coxdata$event, coxdata$covariate, coxdata$trans)
-	dados <- data.frame(dados, row.names=NULL)
-	names(dados) <- c("id", "start", "stop", "event", "covariate", "trans")
-	data <- dados
+as.THMM.default <- function(x) {
+	stop(gettextf( "cannot coerce class '%s' into class 'THMM'", deparse( class(x) ) ), domain = NA)
+}
+
+as.THMM.THMM <- function(x) {
+	if ( !is.THMM(x) ) stop("'x' must be of class 'THMM'")
+	return(x)
+}
+
+as.THMM.CMM <- function(x) {
+	if ( !is.CMM(x) ) stop("'x' must be of class 'CMM'")
+	data <- cbind(x$id, x$start, x$stop, x$event, x$covariate, x$trans)
+	data <- data.frame(data, row.names=NULL)
+	names(data) <- c("id", "start", "stop", "event", "covariate", "trans")
 	data2 <- matrix(ncol=4, nrow=1)
 	i <- 1
 	while ( i <= (nrow(data)-1) ) {
@@ -46,16 +54,16 @@ toTHMM.CMM <- function(coxdata) {
 	data2 <- data.frame(data2, row.names=NULL)
 	names(data2) <- c("PTNUM", "time", "state", "covariate")
 	data2 <- data2[-1,]
+	row.names(data2) <- as.integer( 1:nrow(data2) )
 	class(data2) <- c(class(data2), "THMM")
 	return(data2)
 }
 
-toTHMM.TDCM <- function(coxdata) {
-	if ( !inherits(coxdata, "TDCM") ) stop("'coxdata' must be of class 'TDCM'", call.=FALSE)
-	dados <- cbind(coxdata$start, coxdata$stop, coxdata$event, coxdata$covariate, coxdata$tdcov)
-	dados <- data.frame(dados, row.names=NULL)
-	names(dados) <- c("start", "stop", "event", "covariate", "tdcov")
-	data <- dados
+as.THMM.TDCM <- function(x) {
+	if ( !is.TDCM(x) ) stop("'x' must be of class 'TDCM'")
+	data <- cbind(x$start, x$stop, x$event, x$covariate, x$tdcov)
+	data <- data.frame(data, row.names=NULL)
+	names(data) <- c("start", "stop", "event", "covariate", "tdcov")
 	data2 <- data.frame()
 	j <- 1
 	i <- 1
@@ -132,6 +140,7 @@ toTHMM.TDCM <- function(coxdata) {
 		}
 	}
 	names(data2) <- c("PTNUM", "time", "state", "covariate")
+	row.names(data2) <- as.integer( 1:nrow(data2) )
 	class(data2) <- c(class(data2), "THMM")
 	return(data2)
 }

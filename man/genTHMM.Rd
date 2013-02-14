@@ -2,7 +2,7 @@
 \name{genTHMM}
 \alias{genTHMM}
 \title{Generation of survival data from a time-homogeneous Markov model}
-\description{Generation of survival data from a time-homogeneous Markov model}
+\description{Generation of survival data from a time-homogeneous Markov model.}
 \usage{genTHMM(n, model.cens, cens.par, beta, covar, rate)}
 
 \arguments{
@@ -44,7 +44,6 @@
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{convert}},
 \code{\link{genCMM}},
 \code{\link{genTDCM}},
 \code{\link{genCPHM}}.

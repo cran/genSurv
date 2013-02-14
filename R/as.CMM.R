@@ -1,17 +1,25 @@
-toCMM <- function(coxdata) {
-	UseMethod("toCMM")
+is.CMM <- function(x) {
+	return( is.data.frame(x) & inherits(x, "CMM") )
 }
 
-toCMM.default <- function(coxdata) {
-	stop("The requested conversion isn't implemented!", call.=FALSE)
+as.CMM <- function(x) {
+	UseMethod("as.CMM")
 }
 
-toCMM.TDCM <- function(coxdata) {
-	if ( !inherits(coxdata, "TDCM") ) stop("'coxdata' must be of class 'TDCM'", call.=FALSE)
-	dados <- cbind(coxdata$id, coxdata$start, coxdata$stop, coxdata$event, coxdata$covariate, coxdata$tdcov)
-	dados <- data.frame(dados, row.names=NULL)
-	names(dados) <- c("id", "start", "stop", "event", "covariate", "tdcov")
-	data <- dados
+as.CMM.default <- function(x) {
+	stop(gettextf( "cannot coerce class '%s' into class 'CMM'", deparse( class(x) ) ), domain = NA)
+}
+
+as.CMM.CMM <- function(x) {
+	if ( !is.CMM(x) ) stop("'x' must be of class 'CMM'")
+	return(x)
+}
+
+as.CMM.TDCM <- function(x) {
+	if ( !is.TDCM(x) ) stop("'x' must be of class 'TDCM'")
+	data <- cbind(x$id, x$start, x$stop, x$event, x$covariate, x$tdcov)
+	data <- data.frame(data, row.names=NULL)
+	names(data) <- c("id", "start", "stop", "event", "covariate", "tdcov")
 	data2 <- matrix(ncol=6, nrow=1)
 	i <- 1
 	while ( i <= (nrow(data)-1) ) {
@@ -33,8 +41,7 @@ toCMM.TDCM <- function(coxdata) {
 				aux2 <- c(data[i,1], 0, data[i,3], 1, data[i,5], 2)
 				aux3 <- c(data[i,1], data[i,3], data[i+1,3], 0, data[i,5], 3)
 				data2 <- rbind(data2, aux1, aux2, aux3)
-			}
-			if (data[i+1,4] == 1) {
+			} else if (data[i+1,4] == 1) {
 				aux1 <- c(data[i,1], 0, data[i,3], 0, data[i,5], 1)
 				aux2 <- c(data[i,1], 0, data[i,3], 1, data[i,5], 2)
 				aux3 <- c(data[i,1], data[i,3], data[i+1,3], 1, data[i,5], 3)
@@ -48,28 +55,25 @@ toCMM.TDCM <- function(coxdata) {
 			aux1 <- c(data[i,1], 0, data[i,3], 0, data[i,5], 1)
 			aux2 <- c(data[i,1], 0, data[i,3], 0, data[i,5], 2)
 			data2 <- rbind(data2, aux1, aux2)
-			i <- i+1
-		}
-		if (data[i,4] == 1) {
+		} else if (data[i,4] == 1) {
 			aux1 <- c(data[i,1], 0, data[i,3], 1, data[i,5], 1)
 			aux2 <- c(data[i,1], 0, data[i,3], 0, data[i,5], 2)
 			data2 <- rbind(data2, aux1, aux2)
-			i <- i+1
 		}
 	}
 	data2 <- data.frame(data2, row.names=NULL)
 	names(data2) <- c("id", "start", "stop", "event", "covariate", "trans")
 	data2 <- data2[-1,]
+	row.names(data2) <- as.integer( 1:nrow(data2) )
 	class(data2) <- c(class(data2), "CMM")
 	return(data2)
 }
 
-toCMM.THMM <- function(coxdata) {
-	if ( !inherits(coxdata, "THMM") ) stop("'coxdata' must be of class 'THMM'", call.=FALSE)
-	dados <- cbind(coxdata$PTNUM, coxdata$time, coxdata$state, coxdata$covariate)
-	dados <- data.frame(dados, row.names=NULL)
-	names(dados) <- c("PTNUM", "time", "state", "covariate")
-	data <- dados
+as.CMM.THMM <- function(x) {
+	if ( !is.THMM(x) ) stop("'x' must be of class 'THMM'")
+	data <- cbind(x$PTNUM, x$time, x$state, x$covariate)
+	data <- data.frame(data, row.names=NULL)
+	names(data) <- c("PTNUM", "time", "state", "covariate")
 	data2 <- matrix(ncol=6, nrow=1)
 	i <- 1
 	while ( i <= (nrow(data)-1) ) {
@@ -103,6 +107,7 @@ toCMM.THMM <- function(coxdata) {
 	data2 <- data.frame(data2, row.names=NULL)
 	names(data2) <- c("id", "start", "stop", "event", "covariate", "trans")
 	data2 <- data2[-1,]
+	row.names(data2) <- as.integer( 1:nrow(data2) )
 	class(data2) <- c(class(data2), "CMM")
 	return(data2)
 }

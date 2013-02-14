@@ -47,6 +47,7 @@ genTHMM <- function(n, model.cens, cens.par, beta, covar, rate) {
 	data <- data.frame(mat, row.names=NULL)
 	names(data) <- c("PTNUM", "time", "state", "covariate")
 	data <- data[-1,]
+	row.names(data) <- as.integer( 1:nrow(data) )
 	class(data) <- c(class(data), "THMM")
 	return(data)
 }

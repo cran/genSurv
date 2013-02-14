@@ -52,6 +52,7 @@ genTDCM <- function(n, dist, corr, dist.par, model.cens, cens.par, beta, lambda)
 	data <- data.frame(mat, row.names=NULL)
 	names(data) <- c("id", "start", "stop", "event", "covariate", "tdcov")
 	data <- data[-1,]
+	row.names(data) <- as.integer( 1:nrow(data) )
 	class(data) <- c(class(data), "TDCM")
 	return(data)
 }

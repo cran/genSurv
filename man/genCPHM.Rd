@@ -2,7 +2,7 @@
 \name{genCPHM}
 \alias{genCPHM}
 \title{Generation of survival data from a Cox Proportional Hazard Model}
-\description{Generation of survival data from a Cox Proportional Hazard Model}
+\description{Generation of survival data from a Cox Proportional Hazard Model.}
 \usage{genCPHM(n, model.cens, cens.par, beta, covar)}
 
 \arguments{
@@ -31,7 +31,6 @@ Cox, D.R. (1972). Regression models and life tables (with discussion). Journal o
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{convert}},
 \code{\link{genCMM}},
 \code{\link{genTDCM}},
 \code{\link{genTHMM}}.

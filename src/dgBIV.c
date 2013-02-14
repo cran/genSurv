@@ -12,15 +12,13 @@ static void expt(
 	doubleCP t1,
 	doubleCP t2)
 {
-	double v1, v2, u1, u2, a, b;
-	v1 = runif(0, 1);
-	v2 = runif(0, 1);
-	u1 = v1;
-	a = *pcorr*(2*v1-1)-1;
-	b = R_pow_di(1-*pcorr*(2*v1-1), 2)+*pcorr*4*v2*(2*v1-1);
-	u2 = 2*v2/(sqrt(b)-a);
-	*t1 = -(1/pdistpar[0])*log(1-u1);
-	*t2 = -(1/pdistpar[1])*log(1-u2);
+	double u1, u2, v, a;
+	u1 = runif(0, 1);
+	v = runif(0, 1);
+	a = *pcorr*(2*u1-1);
+	u2 = 2*v/( 1-a+sqrt(R_pow_di(1-a, 2)+4*a*v) );
+	*t1 = -pdistpar[0]*log(1-u1);
+	*t2 = -pdistpar[1]*log(1-u2);
 	return;
 } // expt
 
@@ -31,13 +29,12 @@ static void weibullt(
 	doubleCP t2)
 {
 	register int i;
-	double u, u2[4], v;
-	u = runif(0, 1);
-	for (i = 0; i < 4; i++) u2[i] = runif(0, 1);
-	if (u2[3] > *pcorr) v = -log(u2[2]);
-	else v = -log(u2[0])-log(u2[1]);
-	*t1 = R_pow(u, *pcorr/pdistpar[0])*R_pow(v, 1/pdistpar[0])*pdistpar[1];
-	*t2 = R_pow(1-u, *pcorr/pdistpar[2])*R_pow(v, 1/pdistpar[2])*pdistpar[3];
+	double u[5], v;
+	for (i = 0; i < 5; i++) u[i] = runif(0, 1);
+	if (u[4] > *pcorr) v = -log(u[3]);
+	else v = -log(u[1])-log(u[2]);
+	*t1 = R_pow(u[0], *pcorr/pdistpar[0])*R_pow(v, 1/pdistpar[0])*pdistpar[1];
+	*t2 = R_pow(1-u[0], *pcorr/pdistpar[2])*R_pow(v, 1/pdistpar[2])*pdistpar[3];
 	return;
 } // weibullt
 

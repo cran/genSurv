@@ -18,6 +18,7 @@ genCPHM <- function(n, model.cens, cens.par, beta, covar) {
 	}
 	data <- data.frame(data)
 	names(data) <- c("time", "status", "covariate")
+	row.names(data) <- as.integer( 1:nrow(data) )
 	class(data) <- c(class(data), "CPHM")
 	return(data)
 }

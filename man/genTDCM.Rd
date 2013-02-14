@@ -2,7 +2,7 @@
 \name{genTDCM}
 \alias{genTDCM}
 \title{Generating data from a Cox model with time-dependent covariates}
-\description{Generating data from a Cox model with time-dependent covariates}
+\description{Generating data from a Cox model with time-dependent covariates.}
 \usage{genTDCM(n, dist, corr, dist.par, model.cens, cens.par, beta, lambda)}
 
 \arguments{
@@ -17,7 +17,7 @@
 	and 1 (1 for independency) is accepted for the bivariate weibull distribution.
 }
 \item{dist.par}{
-	Vector of parameters for the allowed distributions. Two (rate) parameters for the
+	Vector of parameters for the allowed distributions. Two (scale) parameters for the
 	bivariate exponential distribution and four (2 shape parameters and 2 scale
 	parameters) for the bivariate weibull distribution: (shape1, scale1, shape2, scale2). See details below.
 }
@@ -29,13 +29,13 @@
 
 \details{
 The bivariate exponential distribution, also known as Farlie-Gumbel-Morgenstern distribution is given by
-\deqn{F(x,y)=F_1(x)F_2(y)[1+\delta((1-F_1(x))(1-F_2(y)))]}{F(x,y)=F_1(x)F_2(y)[1+d((1-F_1(x))(1-F_2(y)))}
-for \eqn{x\ge0}{x\ge0} and \eqn{y\ge0}{y\ge0}. Where the marginal distribution functions \eqn{F_1}{F_1} and \eqn{F_2}{F_2} are exponential with rate parameters \eqn{\lambda_1}{l_1} and \eqn{\lambda_2}{l_2} and correlation parameter \eqn{\delta}{d}, \eqn{-1 \le \delta \le 1}{-1 \le \delta \le 1}. \cr
+\deqn{F(x,y)=F_1(x)F_2(y)[1+\alpha(1-F_1(x))(1-F_2(y))]}{F(x,y)=F_1(x)F_2(y)[1+\alpha(1-F_1(x))(1-F_2(y))]}
+for \eqn{x\ge0}{x\ge0} and \eqn{y\ge0}{y\ge0}. Where the marginal distribution functions \eqn{F_1}{F_1} and \eqn{F_2}{F_2} are exponential with scale parameters \eqn{\theta_1}{\theta_1} and \eqn{\theta_2}{\theta_2} and correlation parameter \eqn{\alpha}{\alpha}, \eqn{-1 \le \alpha \le 1}{-1 \le \alpha \le 1}. \cr
 
 The bivariate Weibull distribution with two-parameter marginal distributions. It's survival function is given by
-\deqn{S(x,y)=P(X>x,Y>y)=e^{-[(\frac{x}{\theta_1})^\frac{\lambda_1}{\delta}+(\frac{y}{\theta_2})^\frac{\lambda_2}{\delta}]^\delta}}{S(x,y)=P(X>x,Y>y)=exp^(-[(x/t_1)^\l_1/d+(y/t_2)^l_2/d]^d)}
+\deqn{S(x,y)=P(X>x,Y>y)=e^{-[(\frac{x}{\theta_1})^\frac{\beta_1}{\delta}+(\frac{y}{\theta_2})^\frac{\beta_2}{\delta}]^\delta}}{S(x,y)=P(X>x,Y>y)=exp^(-[(x/\theta_1)^(\beta_1/\delta)+(y/\theta_2)^(\beta_2/\delta)]^\delta)}
 
-where \eqn{0 < \delta \le 1}{0 < d \le 1} and each marginal distribution has shape parameter \eqn{\lambda_i}{l_i} and a scale parameter \eqn{\theta_i}{t_i}, \eqn{i = 1, 2}.
+Where \eqn{0 < \delta \le 1}{0 < \delta \le 1} and each marginal distribution has shape parameter \eqn{\beta_i}{\beta_i} and a scale parameter \eqn{\theta_i}{\theta_i}, \eqn{i = 1, 2}.
 }
 
 \value{
@@ -76,7 +76,6 @@ where \eqn{0 < \delta \le 1}{0 < d \le 1} and each marginal distribution has sha
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{convert}},
 \code{\link{genCMM}},
 \code{\link{genCPHM}},
 \code{\link{genTHMM}}.
