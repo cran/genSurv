@@ -43,3 +43,6 @@ library(survival)
 fit<-coxph(Surv(time,status)~covariate,data=cphmdata)
 summary(fit)
 }
+
+\keyword{datagen}
+\keyword{survival}

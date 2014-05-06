@@ -95,3 +95,6 @@ head(tdcmdata2, n=20L)
 fit2<-coxph(Surv(start,stop,event)~tdcov+covariate,data=tdcmdata2)
 summary(fit2)
 }
+
+\keyword{datagen}
+\keyword{survival}

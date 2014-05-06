@@ -64,3 +64,6 @@ fit_12
 fit_23<-coxph(Surv(start,stop,event)~covariate, data=cmmdata, subset=c(trans==3))
 fit_23
 }
+
+\keyword{datagen}
+\keyword{survival}

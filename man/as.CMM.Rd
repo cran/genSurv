@@ -61,3 +61,7 @@ covar=80, rate= c(0.05,0.04,0.05) )
 cmmdata1 <- as.CMM(thmmdata)
 head(cmmdata1, n=20L)
 }
+
+\keyword{manip}
+\keyword{methods}
+\keyword{survival}

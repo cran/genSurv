@@ -61,3 +61,7 @@ model.cens="uniform", cens.par=1, beta=c(-3,2), lambda=10)
 thmmdata1 <- as.THMM(tdcmdata)
 head(thmmdata1, n=20L)
 }
+
+\keyword{manip}
+\keyword{methods}
+\keyword{survival}

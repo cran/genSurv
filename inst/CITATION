@@ -1,16 +1,38 @@
 PKG <- "genSurv"
-citHeader( paste("To cite the R package ", PKG, " in publications use:") )
+citHeader( paste("To cite the R package ", PKG, " in publications use:", sep="") )
 
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
 url <- paste("http://CRAN.R-project.org/package=", PKG, sep="")
+title <- "genSurv: Generating multi-state survival data"
 
 citEntry(
-	entry = "Manual",
-	title = "genSurv: Generating multi-state survival data",
-	author = personList( as.person("Artur Agostinho Araújo"), as.person("Luís Meira-Machado"), as.person("Susana Faria") ),
-	year = year,
-	note = vers,
-	url = url,
-	textVersion = paste("Artur Agostinho Araújo, Luís Meira-Machado and Susana Faria (", year, "). genSurv: Generating multi-state survival data. ", vers, " URL ", url, ".", sep="")
+	entry       = "Manual",
+	title       = title,
+	author      = personList(
+                  as.person("Artur Agostinho Ara\\'{u}jo"),
+                  as.person("Lu\\'{i}s Meira-Machado"),
+                  as.person("Susana Faria")
+                ),
+	year        = year,
+	note        = vers,
+	url         = url,
+	textVersion = paste("Artur Agostinho Araújo, Luís Meira-Machado and Susana Faria (", year, "). ", title, ". ", vers, " URL ", url, sep="")
+)
+
+citEntry(
+  entry       = "Article",
+  title       = "A simulation study comparing modeling approaches in an illness-death multi-state model",
+  author      = personList(
+                  as.person("Lu\\'{i}s Meira-Machado"),
+                  as.person("Susana Faria")
+                ),
+  journal     = "Communications in Statistics - Simulation and Computation",
+  issn        = "1532-4141",
+  year        = "2014",
+  volume      = "43",
+  number      = "5",
+  pages       = "929--946",
+  doi         = "10.1080/03610918.2012.718841",
+  textVersion = "Luís Meira-Machado and Susana Faria (2014). “A simulation study comparing modeling approaches in an illness-death multi-state model.” Communications in Statistics - Simulation and Computation, 43(5), pp. 929-946. ISSN 1532-4141. doi:10.1080/03610918.2012.718841"
 )

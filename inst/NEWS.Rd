@@ -2,6 +2,14 @@
 
 \title{NEWS file for the genSurv package}
 
+\section{Changes in version 1.0.2}{
+  \itemize{
+    \item{Improved the documentation.}
+
+    \item{Added research article to the CITATION file.}
+  }
+}
+
 \section{Changes in version 1.0.1}{
 	\itemize{
 		\item{Changed parameterization of the bivariate and univariate exponential models of
