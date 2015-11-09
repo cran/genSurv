@@ -10,14 +10,14 @@ citEntry(
 	entry       = "Manual",
 	title       = title,
 	author      = personList(
-                  as.person("Artur Agostinho Ara\\'{u}jo"),
+                  as.person("Artur Ara\\'{u}jo"),
                   as.person("Lu\\'{i}s Meira-Machado"),
                   as.person("Susana Faria")
                 ),
 	year        = year,
 	note        = vers,
 	url         = url,
-	textVersion = paste("Artur Agostinho Araújo, Luís Meira-Machado and Susana Faria (", year, "). ", title, ". ", vers, " URL ", url, sep="")
+	textVersion = paste("Artur Araújo, Luís Meira-Machado and Susana Faria (", year, "). ", title, ". ", vers, " URL ", url, sep="")
 )
 
 citEntry(

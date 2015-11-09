@@ -38,7 +38,7 @@
 	Therneau, T.M., Grambsch, P.M. (2000). Modelling survival data: Extending the Cox Model. New York: Springer.
 }
 
-\author{Artur Agostinho Araújo, Luís Meira Machado and Susana Faria}
+\author{Artur Araújo, Luís Meira Machado and Susana Faria}
 
 %\note{
 %%  ~~further notes~~

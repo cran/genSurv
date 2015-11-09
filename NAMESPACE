@@ -1,4 +1,5 @@
 useDynLib(genSurv)
+importFrom("stats", rexp, runif)
 export(genCMM, genCPHM, genTDCM, genTHMM)
 export(as.CMM, as.TDCM, as.THMM)
 export(is.CMM, is.TDCM, is.THMM)

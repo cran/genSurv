@@ -2,7 +2,7 @@
 \name{genSurv-package}
 \alias{genSurv-package}
 \docType{package}
-\title{Generating multi-state survival data}
+\title{Generating Multi-State Survival Data}
 \description{
   The \pkg{genSurv} software permits to generate data wih one binary time-dependent covariate and data stemming from a progressive illness-death model.
 }
@@ -11,8 +11,8 @@
 	\tabular{ll}{
 		Package: \tab genSurv\cr
 		Type: \tab Package\cr
-		Version: \tab 1.0.2\cr
-		Date: \tab 2014-05-06\cr
+		Version: \tab 1.0.3\cr
+		Date: \tab 2015-11-09\cr
 		License: \tab GPL (>= 2)\cr
 		LazyLoad: \tab yes\cr
 		LazyData: \tab yes\cr
@@ -20,9 +20,9 @@
 }
 
 \author{
-	Artur Agostinho Araújo, Luís Meira-Machado \email{lmachado@math.uminho.pt}\cr
+	Artur Araújo, Luís Meira-Machado \email{lmachado@math.uminho.pt}\cr
   and Susana Faria \email{sfaria@math.uminho.pt}\cr
-	Maintainer: Artur Agostinho Araújo \email{artur.stat@gmail.com}
+	Maintainer: Artur Araújo \email{artur.stat@gmail.com}
 }
 
 \references{

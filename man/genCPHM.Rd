@@ -22,7 +22,7 @@
 Cox, D.R. (1972). Regression models and life tables (with discussion). Journal of the Royal Statistical Society, Series B 34:187-220.
 }
 
-\author{Artur Agostinho Araújo, Luís Meira Machado and Susana Faria}
+\author{Artur Araújo, Luís Meira Machado and Susana Faria}
 
 %\note{
 %%  ~~further notes~~
