@@ -18,21 +18,26 @@
 %}
 
 \value{
-	An object with two classes, \code{data.frame} and \code{THMM}.
-	For generating survival data from the THMM model, the counting process data structure must contain the following variables:
-	\code{id}, \code{time}, \code{state}, \code{covariate}. Each patient is identified by id.
-	The variable \code{time} represents time for each interval of follow-up while variable \code{state} denotes the state of the individual.
-	Variable \code{covariate} is the (time-fixed) covariate to be studied in the regression model.
-	Individuals without change in the time dependent covariate are represented by two lines of data,
-	whereas patients with a change in the time-dependent covariate must be represented by three lines.
+An object with two classes, \code{data.frame} and \code{THMM}.
+For generating survival data from the THMM model, the counting process data structure must contain the following variables:
+\code{id}, \code{time}, \code{state}, \code{covariate}. Each patient is identified by id.
+The variable \code{time} represents time for each interval of follow-up while variable \code{state} denotes the state of the individual.
+Variable \code{covariate} is the (time-fixed) covariate to be studied in the regression model.
+Individuals without change in the time dependent covariate are represented by two lines of data,
+whereas patients with a change in the time-dependent covariate must be represented by three lines.
 }
 
 \references{
-	Jackson, C. (2007). Multi-state modelling with R: the msm package, Cambridge, U.K.
+Jackson, C. (2011). Multi-State Models for Panel Data: The msm Package for R. \emph{Journal of Statistical Software}, \bold{38}(8), 1–28. \doi{10.18637/jss.v038.i08}
 
-	Meira-Machado, L., Cadarso-Suárez, C., de Uña-Álvarez, J., Andersen, P.K. (2009). Multi-state models for the analysis of time to event data. Statistical Methods in Medical Research, 18(2):195-222.
+Meira-Machado, L., Cadarso-Suárez, C., De Uña- Álvarez, J., Andersen, P.K. (2009). Multi-state models for the analysis of time to event data. \emph{Statistical Methods in Medical Research}, \bold{18}(2), 195-222. \doi{10.1177/0962280208092301}
 
-	Therneau, T.M., Grambsch, P.M. (2000). Modelling survival data: Extending the Cox Model. New York: Springer.
+Meira-Machado L., Faria S. (2014). A simulation study comparing modeling approaches in an illness-death multi-state model. \emph{Communications in Statistics - Simulation and Computation}, \bold{43}(5), 929-946. \doi{10.1080/03610918.2012.718841}
+
+Meira-Machado, L., Sestelo M. (2019). Estimation in the progressive illness-death model: a nonexhaustive
+review. \emph{Biometrical Journal}, \bold{61}(2), 245–263. \doi{10.1002/bimj.201700200}
+
+Therneau, T.M., Grambsch, P.M. (2000). \emph{Modelling survival data: Extending the Cox Model}, New York: Springer.
 }
 
 \author{Artur Araújo, Luís Meira Machado and Susana Faria}

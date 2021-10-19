@@ -17,25 +17,30 @@
 }
 
 \details{
-	The Weibull distribution with shape parameter \eqn{\lambda} and scale parameter \eqn{\theta} has hazard function given by:
+The Weibull distribution with shape parameter \eqn{\lambda} and scale parameter \eqn{\theta} has hazard function given by:
 
-	\deqn{\alpha(t)=\lambda\theta t^{\theta-1}}
+\deqn{\alpha(t)=\lambda\theta t^{\theta-1}}
 }
 
 \value{
-	An object with two classes, \code{data.frame} and \code{CMM}.
-	The data structure used for generating survival data from the Cox Markov Model (CMM) is similar as for the time-dependent Cox model (TDCM).
-	In this case the data structure has one more variable representing the transition (variable \code{trans}).
-	\code{trans=1} denotes the transition from State 1 to State 3 (without observing the intermediate event; State 2);
-	\code{trans=2} denotes the transition from State 1 to State 2; and \code{trans=3} denotes the transition from State 2 to State 3 (absorbing).
+An object with two classes, \code{data.frame} and \code{CMM}.
+The data structure used for generating survival data from the Cox Markov Model (CMM) is similar as for the time-dependent Cox model (TDCM).
+In this case the data structure has one more variable representing the transition (variable \code{trans}).
+\code{trans=1} denotes the transition from State 1 to State 3 (without observing the intermediate event; State 2);
+\code{trans=2} denotes the transition from State 1 to State 2; and \code{trans=3} denotes the transition from State 2 to State 3 (absorbing).
 }
 
 \references{
-	Meira-Machado, L., Cadarso-Suárez, C., De Uña- Álvarez, J., Andersen, P.K. (2009). Multi-state models for the analysis of time to event data. Statistical Methods in Medical Research, 18(2):195-222.
+Meira-Machado, L., Cadarso-Suárez, C., De Uña- Álvarez, J., Andersen, P.K. (2009). Multi-state models for the analysis of time to event data. \emph{Statistical Methods in Medical Research}, \bold{18}(2), 195-222. \doi{10.1177/0962280208092301}
 
-	Meira-Machado, L., Roca-Pardiñas, J. (2011). p3state.msm: Analyzing Survival Data from an Illness-Death Model. Journal of Statistical Software, 38(3): 1-18.
+Meira-Machado L., Faria S. (2014). A simulation study comparing modeling approaches in an illness-death multi-state model. \emph{Communications in Statistics - Simulation and Computation}, \bold{43}(5), 929-946. \doi{10.1080/03610918.2012.718841}
 
-	Therneau, T.M., Grambsch, P.M. (2000). Modelling survival data: Extending the Cox Model. New York: Springer.
+Meira-Machado, L., Roca-Pardiñas, J. (2011). p3state.msm: Analyzing Survival Data from an Illness-Death Model. \emph{Journal of Statistical Software}, \bold{38}(3), 1-18. \doi{10.18637/jss.v038.i03}
+
+Meira-Machado, L., Sestelo M. (2019). Estimation in the progressive illness-death model: a nonexhaustive
+review. \emph{Biometrical Journal}, \bold{61}(2), 245–263. \doi{10.1002/bimj.201700200}
+
+Therneau, T.M., Grambsch, P.M. (2000). \emph{Modelling survival data: Extending the Cox Model}, New York: Springer.
 }
 
 \author{Artur Araújo, Luís Meira Machado and Susana Faria}

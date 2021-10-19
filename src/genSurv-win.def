@@ -1,0 +1,3 @@
+LIBRARY genSurv.dll
+EXPORTS
+ R_init_genSurv

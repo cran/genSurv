@@ -1,4 +1,4 @@
-useDynLib(genSurv)
+useDynLib(genSurv, .registration=TRUE)
 importFrom("stats", rexp, runif)
 export(genCMM, genCPHM, genTDCM, genTHMM)
 export(as.CMM, as.TDCM, as.THMM)

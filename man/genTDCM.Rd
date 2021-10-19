@@ -39,32 +39,37 @@ Where \eqn{0 < \delta \le 1}{0 < \delta \le 1} and each marginal distribution ha
 }
 
 \value{
-	An object with two classes, \code{data.frame} and \code{TDCM}.
-	To accommodate time-dependent effects, we used a counting process data-structure, introduced by Andersen and Gill (1982).
-	In this data-structure, apart the time-fixed covariates (named \code{covariate}), an individual's survival data is expressed by three variables:
-	\code{start}, \code{stop} and \code{event}. Individuals without change in the time-dependent covariate (named \code{tdcov}) are represented by only one line of data,
-	whereas patients with a change in the time-dependent covariate must be represented by two lines.
-	For these patients, the first line represents the time period until the change in the time-dependent covariate;
-	the second line represents the time period that passes from that change to the end of the follow-up.
-	For each line of data, variables \code{start} and \code{stop} mark the time interval (start, stop) for the data,
-	while event is an indicator variable taking on value 1 if there was a death at time stop, and 0 otherwise.
-	More details about this data-structure can be found in papers by (Meira-Machado et al., 2009).
+An object with two classes, \code{data.frame} and \code{TDCM}.
+To accommodate time-dependent effects, we used a counting process data-structure, introduced by Andersen and Gill (1982).
+In this data-structure, apart the time-fixed covariates (named \code{covariate}), an individual's survival data is expressed by three variables:
+\code{start}, \code{stop} and \code{event}. Individuals without change in the time-dependent covariate (named \code{tdcov}) are represented by only one line of data,
+whereas patients with a change in the time-dependent covariate must be represented by two lines.
+For these patients, the first line represents the time period until the change in the time-dependent covariate;
+the second line represents the time period that passes from that change to the end of the follow-up.
+For each line of data, variables \code{start} and \code{stop} mark the time interval (start, stop) for the data,
+while event is an indicator variable taking on value 1 if there was a death at time stop, and 0 otherwise.
+More details about this data-structure can be found in papers by (Meira-Machado et al., 2009).
 }
 
 \references{
-	Anderson, P. K., Gill, R. D. (1982) Cox's regression model for counting processes: a large sample study. Annals of Statistics, 10:1100-1120.
+Anderson, P.K., Gill, R.D. (1982). Cox's regression model for counting processes: a large sample study. \emph{Annals of Statistics}, \bold{10}(4), 1100-1120. \doi{10.1214/aos/1176345976}
 
-	Cox, D. R. (1972). Regression models and life tables (with discussion). Journal of the Royal Statistical Society, Series B 34:187-220.
+Cox, D.R. (1972). Regression models and life tables. \emph{Journal of the Royal Statistical Society: Series B}, \bold{34}(2), 187-202. \doi{10.1111/j.2517-6161.1972.tb00899.x}
 
-	Johnson, M. E. (1987). Multivariate Statistical Simulation, John Wiley and Sons.
+Johnson, M. E. (1987). \emph{Multivariate Statistical Simulation}, John Wiley and Sons.
 
-	Johnson, N., Kotz, S. (1972). Distribution in statistics: continuous multivariate distributions, John Wiley and Sons.
+Johnson, N., Kotz, S. (1972). \emph{Distribution in statistics: continuous multivariate distributions}, John Wiley and Sons.
 
-	Lu J., Bhattacharya, G. (1990). Some new constructions of bivariate weibull models, Annals of Institute of Statistical Mathematics, 42:543-559.
+Lu J., Bhattacharya G. (1990). Some new constructions of bivariate weibull models. \emph{Annals of Institute of Statistical Mathematics}, \bold{42}(3), 543-559. \doi{10.1007/BF00049307}
 
-	Meira-Machado, L., Cadarso-Suárez, C., de Uña-Álvarez, J., Andersen, P.K. (2009). Multi-state models for the analysis of time to event data. Statistical Methods in Medical Research, 18(2):195-222.
+Meira-Machado, L., Cadarso-Suárez, C., De Uña- Álvarez, J., Andersen, P.K. (2009). Multi-state models for the analysis of time to event data. \emph{Statistical Methods in Medical Research}, \bold{18}(2), 195-222. \doi{10.1177/0962280208092301}
 
-	Therneau, T.M., Grambsch, P.M. (2000). Modelling survival data: Extending the Cox Model. New York: Springer.
+Meira-Machado L., Faria S. (2014). A simulation study comparing modeling approaches in an illness-death multi-state model. \emph{Communications in Statistics - Simulation and Computation}, \bold{43}(5), 929-946. \doi{10.1080/03610918.2012.718841}
+
+Meira-Machado, L., Sestelo M. (2019). Estimation in the progressive illness-death model: a nonexhaustive
+review. \emph{Biometrical Journal}, \bold{61}(2), 245–263. \doi{10.1002/bimj.201700200}
+
+Therneau, T.M., Grambsch, P.M. (2000). \emph{Modelling survival data: Extending the Cox Model}, New York: Springer.
 }
 
 \author{Artur Araújo, Luís Meira Machado and Susana Faria}
